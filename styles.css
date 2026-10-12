@@ -694,6 +694,110 @@ select:focus-visible {
   text-align: center;
 }
 
+.sales-enquiry {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+  margin-top: 5.5rem;
+  padding: 3rem;
+  border: 1px solid var(--line);
+  background: #121314;
+}
+
+.sales-enquiry-copy h3,
+.service-request-copy h2,
+.contact-intro h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 4.3vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 1;
+}
+
+.sales-enquiry-copy > p,
+.service-request-copy > p,
+.contact-intro > p {
+  max-width: 380px;
+  margin: 1rem 0 0;
+  color: #aaa8a6;
+  font-size: 0.79rem;
+  line-height: 1.8;
+}
+
+.form-kicker {
+  display: block;
+  margin-bottom: 1.3rem;
+  color: var(--red);
+  font-size: 0.54rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.interactive-form {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.interactive-form label {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0;
+  color: #d0cecc;
+  font-size: 0.65rem;
+}
+
+.interactive-form input,
+.interactive-form select,
+.interactive-form textarea {
+  width: 100%;
+  min-height: 45px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  background-color: #101112;
+  color: var(--ink);
+  font-size: 0.7rem;
+}
+
+.interactive-form input::placeholder,
+.interactive-form textarea::placeholder,
+.interactive-form select:invalid {
+  color: #858587;
+}
+
+.interactive-form textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.interactive-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23a5a5a5' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-position: right 0.9rem center;
+  background-repeat: no-repeat;
+}
+
+.interactive-form select:valid {
+  color: var(--ink);
+}
+
+.interactive-form .form-submit {
+  margin-top: 1.2rem;
+}
+
+.interactive-form .form-note {
+  margin-bottom: 0;
+}
+
+.form-note.is-error {
+  color: #ff9d91;
+}
+
 .service {
   display: grid;
   min-height: 620px;
@@ -748,6 +852,55 @@ select:focus-visible {
   letter-spacing: 0.17em;
 }
 
+.service-request {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: #171819;
+}
+
+.service-form {
+  padding: 1.8rem;
+  border: 1px solid var(--line);
+  background: #111213;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-row > label {
+  margin-top: 0.85rem;
+}
+
+.contact-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.contact-intro .intro-label {
+  margin-bottom: 1.8rem;
+}
+
+.contact-intro > p {
+  margin-bottom: 1.4rem;
+}
+
+.contact-form {
+  padding: 1.8rem;
+  border: 1px solid var(--line);
+  background: #141516;
+}
+
 .appointment {
   display: grid;
   grid-template-columns: 1fr 0.75fr;
@@ -796,7 +949,7 @@ select:focus-visible {
   background: #141516;
 }
 
-.form-heading {
+.appointment-form .form-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -808,7 +961,7 @@ select:focus-visible {
   letter-spacing: 0.12em;
 }
 
-.form-step {
+.appointment-form .form-step {
   color: var(--red);
   font-size: 0.52rem;
 }
@@ -829,6 +982,10 @@ select:focus-visible {
   background: #101112;
   color: var(--ink);
   font-size: 0.7rem;
+}
+
+.appointment-form input[type="date"] {
+  color-scheme: dark;
 }
 
 .appointment-form input::placeholder,
@@ -1190,6 +1347,36 @@ select:focus-visible {
     padding-bottom: 5.2rem;
   }
 
+  .sales-enquiry {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 3.5rem;
+    padding: 1.35rem;
+  }
+
+  .sales-enquiry-copy h3,
+  .service-request-copy h2,
+  .contact-intro h2 {
+    font-size: clamp(2.8rem, 10vw, 4rem);
+  }
+
+  .service-request,
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .service-form,
+  .contact-form {
+    padding: 1.25rem;
+  }
+
+  .form-row {
+    gap: 0.75rem;
+  }
+
   .section-heading {
     align-items: flex-start;
     margin-bottom: 1.8rem;
@@ -1288,6 +1475,11 @@ select:focus-visible {
     padding-bottom: 5.5rem;
   }
 
+  .contact-section {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+
   .appointment h2 {
     font-size: clamp(3.3rem, 11vw, 5.2rem);
   }
@@ -1350,6 +1542,11 @@ select:focus-visible {
 }
 
 @media (max-width: 390px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
   .showcase-overline {
     font-size: 0.47rem;
   }

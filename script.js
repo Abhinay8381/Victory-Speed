@@ -27,28 +27,60 @@ document.addEventListener("keydown", (event) => {
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 
 const appointmentForm = document.querySelector("#appointment-form");
-const formMessage = document.querySelector("#form-message");
 
 document.querySelectorAll(".test-drive-cta").forEach((link) => {
   link.addEventListener("click", () => {
-    appointmentForm.elements.namedItem("model").value = link.dataset.model;
+    appointmentForm.querySelector('[name="vehicle"]').value = link.dataset.model;
   });
 });
 
-appointmentForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+function getToday() {
+  const today = new Date();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
 
-  if (!appointmentForm.reportValidity()) {
-    return;
-  }
+  return `${today.getFullYear()}-${month}-${day}`;
+}
 
-  const formData = new FormData(appointmentForm);
-  const firstName = formData.get("name").trim().split(/\s+/)[0];
-  const model = formData.get("model");
+document.querySelectorAll('input[type="date"]').forEach((input) => {
+  input.min = getToday();
+});
 
-  formMessage.textContent = `Thanks, ${firstName}. Your interest in the ${model} is noted for this demo. No details have been sent or stored.`;
-  formMessage.classList.add("is-success");
-  appointmentForm.reset();
+document.querySelectorAll("[data-demo-form]").forEach((form) => {
+  const formMessage = form.querySelector('[role="status"]');
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    const formData = new FormData(form);
+    const firstName = formData.get("name").trim().split(/\s+/)[0];
+    const details = [
+      formData.get("vehicle"),
+      formData.get("service"),
+      formData.get("topic")
+    ].filter(Boolean);
+    const preferredDate = formData.get("date");
+
+    if (preferredDate) {
+      details.push(new Date(`${preferredDate}T12:00:00`).toLocaleDateString(undefined, {
+        dateStyle: "medium"
+      }));
+    }
+
+    const requestDetails = details.length ? ` for ${details.join(" / ")}` : "";
+    const confirmationNote = form.dataset.demoForm.includes("request")
+      ? "Nothing was sent or stored, and no appointment was booked."
+      : "Nothing was sent or stored.";
+
+    formMessage.textContent = `Thanks, ${firstName}. Your ${form.dataset.demoForm}${requestDetails} is noted for this demo. ${confirmationNote}`;
+    formMessage.classList.remove("is-error");
+    formMessage.classList.add("is-success");
+    form.reset();
+  });
 });
 
 const revealItems = document.querySelectorAll("[data-reveal]");
