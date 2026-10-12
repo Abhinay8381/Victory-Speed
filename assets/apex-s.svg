@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="600" y1="0" x2="600" y2="610" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#121923"/>
+      <stop offset=".65" stop-color="#34454C"/>
+      <stop offset="1" stop-color="#708071"/>
+    </linearGradient>
+    <linearGradient id="paint" x1="243" y1="442" x2="1003" y2="612" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EDF0E7"/>
+      <stop offset=".48" stop-color="#777E78"/>
+      <stop offset="1" stop-color="#363D3E"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v800H0z"/>
+  <path d="M0 411 188 250l86 60 158-214 162 273 119-124 175 228 137-115 175 180v145H0V411Z" fill="#232B32"/>
+  <path d="m0 478 199-146 145 123 172-184 186 218 139-163 156 166 110-88 93 81v148H0V478Z" fill="#364447"/>
+  <path d="M0 569h1200v231H0V569Z" fill="#15191A"/>
+  <path d="M0 698c237-104 456-120 690-96 170 18 344 80 510 87" stroke="#DBE3CF" stroke-opacity=".42" stroke-width="4"/>
+  <path d="M0 738c317-99 622-93 1200 16" stroke="#AFC09B" stroke-opacity=".19" stroke-width="18"/>
+  <path d="m236 569 114-23 147-104c40-28 84-38 136-35l111 7c43 3 69 19 101 51l65 64 93 31-2 55-86 16h-46c-4-49-42-81-88-81-46 0-84 35-88 81l-230-2c-2-47-37-77-81-77-46 0-82 31-86 77l-60-6v-54Z" fill="url(#paint)" stroke="#D8E0D4" stroke-opacity=".45" stroke-width="3"/>
+  <path d="m516 451 41-31c31-23 54-32 89-29l79 4-9 88-244 1 44-33Zm228-54 10 1c41 3 62 17 90 49l35 41-155-4 20-87Z" fill="#1D282D" stroke="#C6D5CE" stroke-opacity=".41" stroke-width="2"/>
+  <path d="m236 579 77-17m610 23 63 4" stroke="#ED322B" stroke-width="4"/>
+  <path d="m465 575 26-13m73-1 26-12m72-1 27-12m64-1 26-13" stroke="#E1E2D7" stroke-opacity=".52" stroke-width="3"/>
+  <circle cx="442" cy="637" r="63" fill="#101315" stroke="#A4ADA2" stroke-width="7"/>
+  <circle cx="442" cy="637" r="36" fill="#23292B" stroke="#DBDDD3" stroke-width="3"/>
+  <circle cx="442" cy="637" r="10" fill="#AAB2A4"/>
+  <circle cx="887" cy="637" r="63" fill="#101315" stroke="#A4ADA2" stroke-width="7"/>
+  <circle cx="887" cy="637" r="36" fill="#23292B" stroke="#DBDDD3" stroke-width="3"/>
+  <circle cx="887" cy="637" r="10" fill="#AAB2A4"/>
+</svg>
