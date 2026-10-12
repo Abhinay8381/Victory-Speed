@@ -29,6 +29,12 @@ document.querySelector("#current-year").textContent = new Date().getFullYear();
 const appointmentForm = document.querySelector("#appointment-form");
 const formMessage = document.querySelector("#form-message");
 
+document.querySelectorAll(".test-drive-cta").forEach((link) => {
+  link.addEventListener("click", () => {
+    appointmentForm.elements.namedItem("model").value = link.dataset.model;
+  });
+});
+
 appointmentForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -44,3 +50,19 @@ appointmentForm.addEventListener("submit", (event) => {
   formMessage.classList.add("is-success");
   appointmentForm.reset();
 });
+
+const revealItems = document.querySelectorAll("[data-reveal]");
+
+if (revealItems.length && "IntersectionObserver" in window) {
+  document.documentElement.classList.add("motion-ready");
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
